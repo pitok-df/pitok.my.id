@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@buntok/core": "^2.1.6"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "bunx buntok build",
+    "start": "bun .buntok/index.js",
+    "check": "bunx @biomejs/biome check --write .",
+    "format": "bunx @biomejs/biome format --write .",
+    "lint": "bunx @biomejs/biome lint ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.11"
+  }
+}
