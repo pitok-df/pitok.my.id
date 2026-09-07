@@ -64,6 +64,7 @@ export interface ContentData {
     githubUrl: string;
     featured: boolean;
     gradient: string;
+    imageUrl?: string | null;
   }[];
   experience: {
     id: number;
@@ -85,6 +86,7 @@ export interface ContentData {
     title: string;
     issuer: string;
     date: string;
+    imageUrl?: string | null;
   }[];
   services: {
     id: number;

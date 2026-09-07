@@ -1,14 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "src/index.ts",
-      "use": "@vercel/rest"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/index.ts"
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "bun",
+  "bunVersion": "1.4.x"
 }

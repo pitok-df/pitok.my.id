@@ -6,7 +6,7 @@ import ParticlesBackground from "./ParticlesBackground";
 import ScrollReveal from "./ScrollReveal";
 
 interface Project {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   tags: string[];
@@ -14,6 +14,7 @@ interface Project {
   githubUrl: string;
   featured: boolean;
   gradient: string;
+  imageUrl?: string | null;
 }
 
 const getGradientStyle = (gradientStr: string) => {
@@ -138,7 +139,11 @@ export default function ProjectsSection({ data }: { data: Project[] }) {
           className="projects-grid"
         >
           {filtered.map((project, i) => {
-            const gradData = getGradientStyle(project.gradient);
+            // Support both new imageUrl and legacy gradient-as-url
+            const rawGradient = project.gradient ?? "";
+            const gradientUrl = rawGradient.startsWith("http") || rawGradient.startsWith("/") ? rawGradient : null;
+            const imageUrl = project.imageUrl || gradientUrl;
+            const gradData = getGradientStyle(gradientUrl ? "from-blue-500 to-cyan-500" : rawGradient);
             return (
               <ScrollReveal key={project.id} delay={i * 50}>
                 <div
@@ -175,6 +180,13 @@ export default function ProjectsSection({ data }: { data: Project[] }) {
                     }}
                     className="project-accent-bar"
                   />
+                  {/* Project Image (v1: imageUrl, legacy: gradient as url) */}
+                  {imageUrl && (
+                    <div style={{ margin: "-24px -20px 12px", height: 160, overflow: "hidden", borderBottom: "1px solid var(--border)", background: "var(--bg-secondary)" }}>
+                      {/* biome-ignore lint/performance/noImgElement: dynamic url from admin */}
+                      <img src={imageUrl} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
+                    </div>
+                  )}
 
                   <div>
                     {/* Title & Featured Badge */}

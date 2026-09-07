@@ -6,6 +6,16 @@ import ParticlesBackground from "./ParticlesBackground";
 import ScrollReveal from "./ScrollReveal";
 import type { GalleryItem } from "@/data/db";
 
+function resolveImageUrl(url: string): string {
+  if (!url) return url;
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  if (url.startsWith("/uploads")) {
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL ?? "";
+    return `${base.replace(/\/$/, "")}${url}`;
+  }
+  return url;
+}
+
 export default function GallerySection({ data }: { data: GalleryItem[] }) {
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
 
@@ -123,11 +133,15 @@ export default function GallerySection({ data }: { data: GalleryItem[] }) {
                   {/* Photo Frame Container */}
                   <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", overflow: "hidden", border: "1px solid var(--border)" }}>
                     {/* biome-ignore lint/performance/noImgElement: dynamic URLs are managed by user admin dashboard */}
-                    <img 
-                      src={photo.url} 
+                    <img
+                      src={resolveImageUrl(photo.url)}
                       alt={photo.caption}
                       style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
                       className="gallery-thumbnail-img"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = "none";
+                      }}
                     />
                     {/* Scanline CRT overlay */}
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04))", backgroundSize: "100% 4px, 6px 100%", pointerEvents: "none" }} />
@@ -208,8 +222,8 @@ export default function GallerySection({ data }: { data: GalleryItem[] }) {
                 {/* Image Display */}
                 <div style={{ position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden", background: "var(--bg-secondary)", minHeight: 280, maxHeight: "60vh" }}>
                   {/* biome-ignore lint/performance/noImgElement: dynamic URLs are managed by user admin dashboard */}
-                  <img 
-                    src={data[activePhotoIndex].url} 
+                  <img
+                    src={resolveImageUrl(data[activePhotoIndex].url)}
                     alt={data[activePhotoIndex].caption}
                     style={{ maxWidth: "100%", maxHeight: "60vh", objectFit: "contain" }}
                   />
