@@ -1,7 +1,6 @@
 {
   "name": "backend",
-  "module": "server.ts",
-  "type": "commonjs",
+  "private": true,
   "devDependencies": {
     "@biomejs/biome": "^2.5.12",
     "@types/bun": "latest"
