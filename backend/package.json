@@ -1,25 +1,24 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "author": "",
-  "main": "server.ts",
+  "module": "server.ts",
+  "type": "commonjs",
+  "private": true,
   "devDependencies": {
-    "@biomejs/biome": "^2.5.12"
+    "@biomejs/biome": "^2.5.12",
+    "@types/bun": "latest"
   },
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "@buntok/core": "^2.1.13"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun --watch server.ts",
     "build": "bunx buntok build",
     "start": "bun .buntok/server.js",
     "check": "bunx @biomejs/biome check --write .",
     "format": "bunx @biomejs/biome format --write .",
     "lint": "bunx @biomejs/biome lint ."
-  },
-  "type": "commonjs",
-  "dependencies": {
-    "@buntok/core": "^2.1.13"
   }
 }
