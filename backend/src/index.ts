@@ -18,9 +18,6 @@ const container = new Container();
 container.scan([AuthController, SkillController, UploaderController]);
 app.setContainer(container);
 
-app.icon();
-app.get("/", () => "Hello World!");
-
 app.registerController([AuthController, SkillController, UploaderController]);
 
 export default app;

@@ -21,11 +21,34 @@ export class UploaderService {
             };
           },
         },
+        galery: {
+          allowedMimeTypes: ["image/jpeg", "image/png", "image/webp"],
+          outputFormat: "webp",
+          multiple: true,
+          filename(originalName, file) {
+            const cleanName = originalName
+              .replace(/\.[^/.]+$/, "")
+              .replace(/\s+/g, "-")
+              .toLowerCase();
+            return {
+              name: `galeries/${cleanName}-${Date.now()}`,
+              ext: "webp",
+            };
+          },
+        },
       },
     });
 
     return {
-      thumbnail_url: `http://localhost:1212/${result.fields.thumbnail?.path}`,
+      thumbnail_url: result.fields.thumbnail?.path
+        ? `http://localhost:1212/${result.fields.thumbnail?.path}`
+        : undefined,
+      galery_url:
+        result.fields.galery && result.fields.galery.length > 0
+          ? result.fields.galery.map(
+              (glry) => `http://localhost:1212/${glry.path}`,
+            )
+          : undefined,
     };
   }
 }

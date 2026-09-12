@@ -1,8 +1,9 @@
-import { Context, Controller, Post, Use } from "@buntok/core";
+import { Context, Controller, Dependencies, Post, Use } from "@buntok/core";
 import { zValidator } from "@buntok/core/middlewares/validator";
-import type { UploaderService } from "./uploader.service";
+import { UploaderService } from "./uploader.service";
 import { UploadSchema } from "./uploader.schema";
 
+@Dependencies(UploaderService)
 @Controller("/upload")
 export class UploaderController {
   constructor(private uploadService: UploaderService) {}
