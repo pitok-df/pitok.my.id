@@ -20,7 +20,7 @@ app.cors({
 // app.registerController(AuthController);
 // app.registerController(UploaderController);
 // app.registerController(SkillController);
-
+app.icon();
 app.get("/", () => "Hello World!");
 
 export default app;
