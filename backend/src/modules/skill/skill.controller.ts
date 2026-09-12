@@ -1,11 +1,5 @@
 import { env } from "@/env";
 import {
-  skillSchema,
-  skillUpdateSchema,
-  type SkillSchema,
-} from "@/schemas/skill.schema";
-import { SkillService } from "@/services/skill.service";
-import {
   Context,
   Controller,
   Delete,
@@ -15,10 +9,16 @@ import {
   Post,
   requireAuth,
   Use,
-  z,
-  zValidator,
   type ZodCtx,
 } from "@buntok/core";
+import { SkillService } from "./skill.service";
+import {
+  CreateSkillSchema,
+  UpdateSkillSchema,
+  type CreateSkillInput,
+  type UpdateSkillInput,
+} from "./skill.schema";
+import { z, zValidator } from "@buntok/core/middlewares/validator";
 
 @Dependencies(SkillService)
 @Controller("/skills")
@@ -32,16 +32,16 @@ export class SkillController {
   }
 
   @Post("/")
-  @Use(requireAuth(env.JWT_SECRET))
-  @Use(zValidator("body", skillSchema))
-  async createSkill(ctx: ZodCtx<{ body: SkillSchema }>) {
+  @Use(requireAuth(env.JWT_SECRET!))
+  @Use(zValidator("body", CreateSkillSchema))
+  async createSkill(ctx: ZodCtx<{ body: CreateSkillInput }>) {
     const data = ctx.valid("body");
     const skill = await this.skillService.createSkill(data);
     return ctx.success(skill, "Skill created successfully");
   }
 
   @Delete("/:skillID")
-  @Use(requireAuth(env.JWT_SECRET))
+  @Use(requireAuth(env.JWT_SECRET!))
   @Use(zValidator("params", { skillID: z.string() }))
   async deleteSkill(ctx: ZodCtx<{ params: { skillID: string } }>) {
     const { skillID } = ctx.valid("params");
@@ -50,11 +50,11 @@ export class SkillController {
   }
 
   @Patch("/:skillID")
-  @Use(requireAuth(env.JWT_SECRET))
+  @Use(requireAuth(env.JWT_SECRET!))
   @Use(zValidator("params", { skillID: z.string() }))
-  @Use(zValidator("body", skillUpdateSchema))
+  @Use(zValidator("body", UpdateSkillSchema))
   async updateSkill(
-    ctx: ZodCtx<{ params: { skillID: string }; body: SkillSchema }>,
+    ctx: ZodCtx<{ params: { skillID: string }; body: UpdateSkillInput }>,
   ) {
     const { skillID } = ctx.valid("params");
     const data = ctx.valid("body");

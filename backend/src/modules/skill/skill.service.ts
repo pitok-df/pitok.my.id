@@ -1,6 +1,6 @@
-import { SkillRepository } from "@/repositories/skill.repository";
-import type { SkillSchema } from "@/schemas/skill.schema";
 import { Cache, ConflictError, Dependencies } from "@buntok/core";
+import { SkillRepository } from "./skill.repository";
+import type { CreateSkillInput, UpdateSkillInput } from "./skill.schema";
 
 @Dependencies(SkillRepository)
 export class SkillService {
@@ -15,7 +15,7 @@ export class SkillService {
     return skills;
   }
 
-  async createSkill(data: SkillSchema) {
+  async createSkill(data: CreateSkillInput) {
     const existingSkill = await this.skillRepository.findSkillByName(data.name);
     if (existingSkill) {
       throw new ConflictError("Skill with the same name already exists");
@@ -25,7 +25,7 @@ export class SkillService {
     return result;
   }
 
-  async updateSkill(skillID: string, data: SkillSchema) {
+  async updateSkill(skillID: string, data: UpdateSkillInput) {
     const result = await this.skillRepository.updateSkill(skillID, data);
     if (result) this.cache.delete("skills");
     return result;

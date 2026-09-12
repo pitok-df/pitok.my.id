@@ -1,26 +1,26 @@
-import { App, compress, Container, cors } from "@buntok/core";
-// import { AuthController } from "./controllers/auth.controller";
-// import { UploaderController } from "./controllers/uploader.controller";
-// import { SkillController } from "./controllers/skill.controller";
+import { App, compress, Container } from "@buntok/core";
+import { AuthController } from "@/modules/auth";
+import { SkillController } from "@/modules/skill";
+import { UploaderController } from "@/modules/uploader";
 
 export const app = new App();
 app.apiDocs();
+
 app.use(compress());
 app.cors({
   origin: ["http://localhost:3000", "https://pitok.my.id"],
   credentials: true,
 });
 
-// app.static("/resources", "./resources");
+app.static("/resources", "./resources");
 
-// const container = new Container();
-// container.scan([SkillController, AuthController, UploaderController]);
-// app.setContainer(container);
+const container = new Container();
+container.scan([AuthController, SkillController, UploaderController]);
+app.setContainer(container);
 
-// app.registerController(AuthController);
-// app.registerController(UploaderController);
-// app.registerController(SkillController);
 app.icon();
 app.get("/", () => "Hello World!");
+
+app.registerController([AuthController, SkillController, UploaderController]);
 
 export default app;

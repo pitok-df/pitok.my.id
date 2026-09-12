@@ -1,16 +1,16 @@
 import { prisma } from "@/libs/prisma";
-import type { SkillSchema } from "@/schemas/skill.schema";
+import type { CreateSkillInput, UpdateSkillInput } from "./skill.schema";
 
 export class SkillRepository {
   async findAllSkills() {
     return prisma.skill.findMany();
   }
 
-  async createSkill(data: SkillSchema) {
+  async createSkill(data: CreateSkillInput) {
     return prisma.skill.create({ data });
   }
 
-  async updateSkill(skillID: string, data: SkillSchema) {
+  async updateSkill(skillID: string, data: UpdateSkillInput) {
     return prisma.skill.update({ where: { id: skillID }, data });
   }
 

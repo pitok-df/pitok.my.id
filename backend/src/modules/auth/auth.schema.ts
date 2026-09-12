@@ -1,4 +1,4 @@
-import { z } from "@buntok/core";
+import { z } from "@buntok/core/middlewares/validator";
 
 export const loginSchema = z.object({
   email: z.email("Invalid email address"),

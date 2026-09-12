@@ -1,6 +1,4 @@
 import { env } from "@/env";
-import { loginSchema, type LoginSchema } from "@/schemas/auth.schema";
-import { AuthService } from "@/services/auth.service";
 import {
   Context,
   Controller,
@@ -11,9 +9,11 @@ import {
   requireAuth,
   setCookie,
   Use,
-  zValidator,
   type ZodCtx,
 } from "@buntok/core";
+import { AuthService } from "./auth.service";
+import { loginSchema, type LoginSchema } from "./auth.schema";
+import { zValidator } from "@buntok/core/middlewares/validator";
 
 @Dependencies(AuthService)
 @Controller("/auth")
@@ -47,7 +47,7 @@ export class AuthController {
   }
 
   @Get("/me")
-  @Use(requireAuth(env.JWT_SECRET))
+  @Use(requireAuth(env.JWT_SECRET!))
   async me(ctx: Context) {
     const userId = ctx.user?.id;
 
