@@ -156,7 +156,7 @@ export function SkillsEditor() {
         </CardHeader>
         <CardContent className="space-y-4">
           {categories.map((cat) => (
-            <Card key={cat.name} size="sm">
+            <Card key={cat.name}>
               <CardHeader className="flex-row items-center justify-between">
                 <CardTitle className="text-sm">
                   <Badge variant="secondary">{cat.name}</Badge>
@@ -168,7 +168,7 @@ export function SkillsEditor() {
                   <Button
                     type="button"
                     variant="ghost"
-                    size="icon-xs"
+                    size="icon"
                     onClick={() => removeCategory(cat.name)}
                   >
                     <X className="size-3" />
@@ -188,7 +188,7 @@ export function SkillsEditor() {
                         <Button
                           type="button"
                           variant="ghost"
-                          size="icon-xs"
+                          size="icon"
                           onClick={() => removeSkill(cat.name, item.id)}
                         >
                           <X className="size-3" />

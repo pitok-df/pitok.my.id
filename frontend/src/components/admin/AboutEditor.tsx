@@ -131,7 +131,7 @@ export function AboutEditor() {
                   <Button
                     type="button"
                     variant="ghost"
-                    size="icon-sm"
+                    size="icon"
                     onClick={() => removeFact(fact.key)}
                   >
                     <X className="size-3" />

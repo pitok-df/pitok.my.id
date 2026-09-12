@@ -6,7 +6,6 @@ import { SortableItem, SortableList } from "@/components/admin/v2/SortableList";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardHeader,
   CardTitle,
@@ -137,26 +136,24 @@ export function ServicesEditor() {
         {items.map((svc) => (
           <SortableItem key={svc.id} id={svc.id}>
             <Card className="mb-3">
-              <CardHeader>
+              <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-sm">{svc.title}</CardTitle>
-                <CardAction>
-                  <div className="flex gap-1">
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      onClick={() => openEdit(svc)}
-                    >
-                      <Pencil className="size-3" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      onClick={() => handleDelete(svc.id)}
-                    >
-                      <Trash2 className="size-3" />
-                    </Button>
-                  </div>
-                </CardAction>
+                <div className="flex gap-1">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => openEdit(svc)}
+                  >
+                    <Pencil className="size-3" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleDelete(svc.id)}
+                  >
+                    <Trash2 className="size-3" />
+                  </Button>
+                </div>
               </CardHeader>
               <CardContent>
                 <p className="text-xs text-muted-foreground line-clamp-2">

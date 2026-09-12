@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-inter);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+}

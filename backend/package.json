@@ -6,7 +6,10 @@
     "@types/bun": "latest"
   },
   "dependencies": {
-    "@buntok/core": "^2.1.13"
+    "@buntok/core": "2.1.14-alpha.0",
+    "@buntok/prisma": "^1.0.8",
+    "@prisma/adapter-pg": "^7.10.0",
+    "prisma": "7.9.1"
   },
   "scripts": {
     "dev": "bun --watch server.ts",

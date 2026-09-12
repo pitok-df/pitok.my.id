@@ -93,7 +93,7 @@ export function HeroEditor() {
                 <Button
                   type="button"
                   variant="ghost"
-                  size="icon-sm"
+                  size="icon"
                   onClick={() => setTitles(titles.filter((_, j) => j !== i))}
                 >
                   <X className="size-3" />

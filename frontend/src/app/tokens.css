@@ -1,0 +1,72 @@
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Colors - Light Mode (Clean Warm White / Slate) */
+  --bg-primary: #fafafa;
+  --bg-secondary: #f4f4f5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafa;
+
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #8d8d9c;
+
+  --accent: oklch(0.97 0 0); /* Bold red accent */
+  --accent-hover: #be123c;
+  --accent-glow: rgba(225, 29, 72, 0.25);
+  --accent-subtle: rgba(225, 29, 72, 0.08);
+
+  --border: oklch(0.922 0 0);
+  --border-strong: #a1a1aa;
+
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.06);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.04);
+  --shadow-accent: 0 8px 24px rgba(225, 29, 72, 0.15);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  --transition: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --nav-height: 56px;
+}
+
+.dark {
+  /* Colors - Dark Mode (Sleek Zinc/Black) */
+  --bg-primary: #09090b;
+  --bg-secondary: #121214;
+  --bg-card: #09090b;
+  --bg-card-hover: #121214;
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+
+  --accent: oklch(0.269 0 0); /* Bold red accent */
+  --accent-hover: #ff375f;
+  --accent-glow: rgba(255, 45, 85, 0.3);
+  --accent-subtle: rgba(255, 45, 85, 0.1);
+
+  --border: oklch(1 0 0 / 10%);
+  --border-strong: #52525b;
+
+  --glass-bg: rgba(9, 9, 11, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.7);
+  --shadow-accent: none;
+}

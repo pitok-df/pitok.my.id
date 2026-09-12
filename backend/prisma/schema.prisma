@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  password String
+}
+
+model Profile {
+  id        String       @id @default(cuid())
+  name      String
+  headline  String?
+  bio       String?
+  photoUrl  String?
+  email     String
+  resumeUrl String?
+  socials   SocialLink[]
+}
+
+model SocialLink {
+  id        String  @id @default(cuid())
+  platform  String
+  url       String
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId])
+}
+
+model Skill {
+  id       String    @id @default(cuid())
+  name     String
+  category String
+  projects Project[]
+
+  @@index([category])
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  thumbnail   String?
+  demoUrl     String?
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  skills      Skill[]
+
+  @@index([featured])
+  @@index([createdAt])
+}
+
+model Experience {
+  id          String    @id @default(cuid())
+  position    String
+  company     String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+
+  @@index([startDate])
+}
+
+model Education {
+  id          String    @id @default(cuid())
+  institution String
+  degree      String
+  field       String?
+  startDate   DateTime
+  endDate     DateTime?
+
+  @@index([startDate])
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  caption   String?
+  createdAt DateTime @default(now())
+}
+
+model GuestbookEntry {
+  id         String   @id @default(cuid())
+  name       String
+  message    String
+  isApproved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@index([isApproved, createdAt])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([isRead])
+}

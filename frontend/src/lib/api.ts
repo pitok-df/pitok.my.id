@@ -2,6 +2,9 @@
 // Semua fetch pakai `credentials: "include"` agar cookie terkirim.
 // Base URL dari env: NEXT_PUBLIC_BACKEND_URL untuk client, BACKEND_URL untuk server (SSR).
 
+import { ApiRequestError } from "./api-error";
+import type { ApiErrorResponse } from "@/components/form/types";
+
 const getBaseUrl = () => {
   // Client
   if (typeof window !== "undefined") {
@@ -49,14 +52,16 @@ async function request<T>(
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    let message = text;
+    let data: ApiErrorResponse = {
+      success: false,
+      message: text || `Request failed ${res.status}`,
+    };
     try {
-      const json = JSON.parse(text);
-      message = json.message ?? json.error ?? text;
+      data = JSON.parse(text);
     } catch {
       // text bukan JSON
     }
-    throw new Error(message || `Request failed ${res.status}`);
+    throw new ApiRequestError(res.status, data);
   }
 
   // 204 No Content
@@ -91,12 +96,14 @@ async function uploadRequest<T>(path: string, formData: FormData): Promise<T> {
   });
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    let message = text;
+    let data: ApiErrorResponse = {
+      success: false,
+      message: text || `Upload failed ${res.status}`,
+    };
     try {
-      const json = JSON.parse(text);
-      message = json.message ?? json.error ?? text;
+      data = JSON.parse(text);
     } catch {}
-    throw new Error(message || `Upload failed ${res.status}`);
+    throw new ApiRequestError(res.status, data);
   }
   const json = await res.json();
   if (json && typeof json === "object" && "data" in json) return json.data as T;

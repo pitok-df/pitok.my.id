@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardHeader,
   CardTitle,
@@ -177,31 +176,29 @@ export function ProjectsEditor() {
         {items.map((project) => (
           <SortableItem key={project.id} id={project.id}>
             <Card className="mb-3">
-              <CardHeader>
+              <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-sm flex items-center gap-2">
                   {project.title || "Untitled"}
                   {project.featured && (
                     <Badge variant="default">Featured</Badge>
                   )}
                 </CardTitle>
-                <CardAction>
-                  <div className="flex gap-1">
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      onClick={() => openEdit(project)}
-                    >
-                      <Pencil className="size-3" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon-xs"
-                      onClick={() => handleDeleteItem(project.id)}
-                    >
-                      <Trash2 className="size-3" />
-                    </Button>
-                  </div>
-                </CardAction>
+                <div className="flex gap-1">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => openEdit(project)}
+                  >
+                    <Pencil className="size-3" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleDeleteItem(project.id)}
+                  >
+                    <Trash2 className="size-3" />
+                  </Button>
+                </div>
               </CardHeader>
               <CardContent>
                 <p className="text-xs text-muted-foreground line-clamp-2">
