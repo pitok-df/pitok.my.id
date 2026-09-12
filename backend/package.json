@@ -17,6 +17,7 @@
     "start": "bun .buntok/server.js",
     "check": "bunx @biomejs/biome check --write .",
     "format": "bunx @biomejs/biome format --write .",
-    "lint": "bunx @biomejs/biome lint ."
+    "lint": "bunx @biomejs/biome lint .",
+    "postinstall": "prisma generate"
   }
 }
