@@ -1,14 +1,17 @@
-import { Dependencies, LocalDiskStorage, uuid } from "@buntok/core";
+import { Dependencies } from "@buntok/core";
 import { GaleryImageRepository } from "./galery-image.repository";
 import type {
   CreateGaleryImageInput,
   DeleteGalleryImageManyInput,
 } from "./galery-image.schema";
 import { env } from "@/env";
+import { uuid } from "@buntok/core/middlewares";
+import { storeStorage } from "@/libs/storage";
 
 @Dependencies(GaleryImageRepository)
 export class GaleryImageService {
-  private storage = new LocalDiskStorage("./resources");
+  private storage = storeStorage;
+
   constructor(private readonly galeryImageRepository: GaleryImageRepository) {}
 
   async getAll() {

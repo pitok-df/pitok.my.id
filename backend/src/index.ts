@@ -1,12 +1,16 @@
-import { App, compress, Container } from "@buntok/core";
+import { App, Container } from "@buntok/core";
 import { AuthController } from "@/modules/auth";
 import { SkillController } from "@/modules/skill";
 import { GaleryImageController } from "@/modules/galery-image";
+import { ProjectController } from "@/modules/project";
+import { compress } from "@buntok/core/middlewares";
 
 export const app = new App();
+app.disable("x-powered-by");
 app.apiDocs({
   title: "pitok.my.id",
   description: "API Dokumentasi untuk pitok.my.id",
+  safeOnProduction: true,
 });
 
 app.use(compress());
@@ -18,13 +22,19 @@ app.cors({
 app.static("/resources", "./resources");
 
 const container = new Container();
-container.scan([AuthController, SkillController, GaleryImageController]);
+container.scan([
+  AuthController,
+  SkillController,
+  GaleryImageController,
+  ProjectController,
+]);
 app.setContainer(container);
 
 app.registerController([
   AuthController,
   SkillController,
   GaleryImageController,
+  ProjectController,
 ]);
 
 export default app;

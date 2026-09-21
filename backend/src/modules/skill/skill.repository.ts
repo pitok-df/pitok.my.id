@@ -23,4 +23,12 @@ export class SkillRepository {
       where: { name },
     });
   }
+
+  async getSkillInName(names: string[]) {
+    return prisma.skill.findMany({
+      where: {
+        name: { in: names },
+      },
+    });
+  }
 }

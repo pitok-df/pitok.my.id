@@ -10,4 +10,8 @@ export const env = App.validateEnv({
     .enum(["development", "production", "test"])
     .default("development"),
   DATABASE_URL: z.url().optional(),
+  CLOUDINARY_CLOUD_NAME: z.string().optional(),
+  CLOUDINARY_API_KEY: z.string().optional(),
+  CLOUDINARY_API_SECRET: z.string().optional(),
+  CLOUDINARY_FOLDER: z.string().default("uploads"),
 });

@@ -7,7 +7,6 @@ import {
   type ZodCtx,
   HttpCode,
   Use,
-  requireAuth,
   Delete,
 } from "@buntok/core";
 import { GaleryImageService } from "./galery-image.service";
@@ -21,6 +20,7 @@ import {
 } from "./galery-image.schema";
 import { zValidator } from "@buntok/core/middlewares/validator";
 import { env } from "@/env";
+import { requireAuth } from "@buntok/core/auth";
 
 @Dependencies(GaleryImageService)
 @Controller("/galery-images")

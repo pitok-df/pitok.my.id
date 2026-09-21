@@ -15,14 +15,15 @@ export function objectToFormData(
       form.append(key, value.toISOString());
     } else if (value instanceof File) {
       form.append(key, value);
+    } else if (typeof value === "boolean") {
+      if (value) form.append(key, "true");
     } else if (Array.isArray(value)) {
-      for (const item of value) {
-        const arrayKey = `${key}[]`;
-        if (item instanceof File) {
-          form.append(arrayKey, item);
-        } else {
-          form.append(arrayKey, String(item));
+      if (value.length > 0 && value[0] instanceof File) {
+        for (const item of value) {
+          form.append(key, item);
         }
+      } else {
+        form.append(key, JSON.stringify(value));
       }
     } else if (typeof value === "object") {
       objectToFormData(value as Record<string, unknown>, form, key);

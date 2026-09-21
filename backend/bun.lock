@@ -5,9 +5,10 @@
     "": {
       "name": "backend",
       "dependencies": {
-        "@buntok/core": "^2.1.16",
+        "@buntok/core": "^2.2.0",
         "@buntok/prisma": "^1.0.8",
         "@prisma/adapter-pg": "^7.10.0",
+        "cloudinary": "^2.11.0",
         "prisma": "7.9.1",
       },
       "devDependencies": {
@@ -37,7 +38,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.5.12", "", { "os": "win32", "cpu": "x64" }, "sha512-B1R/l+CwEpKFSuqiwePzPNRk1EiJN8kc0UhdafNz6MZN9v5OFP9HYP1irptvWzHrwVI4blVNGMbxc5zt70m3IA=="],
 
-    "@buntok/core": ["@buntok/core@2.1.16", "", { "dependencies": { "@asteasolutions/zod-to-openapi": "^8.5.0", "croner": "^10.0.1", "zod": "^4.4.3" }, "peerDependencies": { "@apollo/server": ">=4.0.0", "@opentelemetry/api": ">=1.0.0", "amqplib": "", "bullmq": "", "bun": ">=1.2.0", "graphql": ">=16.0.0", "graphql-yoga": ">=5.0.0", "ioredis": "", "reflect-metadata": ">=0.1.0" }, "optionalPeers": ["@apollo/server", "@opentelemetry/api", "amqplib", "bullmq", "graphql", "graphql-yoga", "ioredis", "reflect-metadata"], "bin": { "buntok": "dist/cli/index.js" } }, "sha512-Ooy4R+B3WjGaAn2hB85sZZ3PHccIuCtLo+ezqxPal5o5e2aN2422hB7vTeOyQznlHfimx+Ry9bQnDd4Sxn67Og=="],
+    "@buntok/core": ["@buntok/core@2.2.0", "", { "dependencies": { "@asteasolutions/zod-to-openapi": "^8.5.0", "croner": "^10.0.1", "zod": "^4.4.3" }, "peerDependencies": { "@apollo/server": ">=4.0.0", "@opentelemetry/api": ">=1.0.0", "amqplib": "", "bullmq": "", "bun": ">=1.2.0", "graphql": ">=16.0.0", "graphql-yoga": ">=5.0.0", "ioredis": "", "reflect-metadata": ">=0.1.0" }, "optionalPeers": ["@apollo/server", "@opentelemetry/api", "amqplib", "bullmq", "graphql", "graphql-yoga", "ioredis", "reflect-metadata"], "bin": { "buntok": "dist/cli/index.js" } }, "sha512-DlWkUxaNcaaxtjbh9fLZITXXPtzrKZQnNGzLn9L7RHPYhjjUFVAZM4agAyrU39+ve4GlGF5L3zLr7QNq76A9bw=="],
 
     "@buntok/prisma": ["@buntok/prisma@1.0.8", "", { "peerDependencies": { "@prisma/client": ">=6.0.0" } }, "sha512-AB1VlxPtyTtDW0aGgZGCVtnfXvYz3u2rWypH169peUqgd9Ax2fDZfCPmcxePO6Dy5pSf4fatRPhjHXFs/z5NnA=="],
 
@@ -184,6 +185,8 @@
     "chokidar": ["chokidar@5.0.0", "", { "dependencies": { "readdirp": "^5.0.0" } }, "sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw=="],
 
     "classnames": ["classnames@2.5.1", "", {}, "sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow=="],
+
+    "cloudinary": ["cloudinary@2.11.0", "", { "dependencies": { "lodash": "^4.17.23" } }, "sha512-o2pAkDDqrzPFE/mn9GCfFjBIGQmPs++Ts6rtkFl4vY528DNHiMovKWjH16HBjeGa9iwI7eAad24aWN2emT0aww=="],
 
     "confbox": ["confbox@0.2.4", "", {}, "sha512-ysOGlgTFbN2/Y6Cg3Iye8YKulHw+R2fNXHrgSmXISQdMnomY6eNDprVdW9R5xBguEqI954+S6709UyiO7B+6OQ=="],
 

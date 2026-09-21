@@ -2,21 +2,19 @@
 
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-
 import { LoginForm } from "@/components/login-form";
 import type { LoginSchema } from "@/schemas/auth.schema";
-import { apiClient } from "@/lib/axios";
+import { useLogin } from "@/hooks/queries/useAuth";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { mutateAsync } = useLogin();
 
   const handleLogin = async (data: LoginSchema) => {
     try {
-      const res = await apiClient.post("/auth/login", data);
-
-      console.log("Login response: ", res.data);
+      await mutateAsync({ email: data.email, password: data.password });
       toast.success("Berhasil login");
-      router.push("/admin");
+      router.push("/admin-v2");
     } catch (error) {
       console.error("Login error: ", error);
       throw error;

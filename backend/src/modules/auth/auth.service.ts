@@ -1,7 +1,8 @@
 import { jwt } from "@/libs/jwt";
-import { Dependencies, UnauthorizedError, verifyPassword } from "@buntok/core";
+import { Dependencies } from "@buntok/core";
 import type { LoginSchema } from "./auth.schema";
 import { AuthRepository } from "./auth.repository";
+import { UnauthorizedError, verifyPassword } from "@buntok/core/helpers";
 
 @Dependencies(AuthRepository)
 export class AuthService {
