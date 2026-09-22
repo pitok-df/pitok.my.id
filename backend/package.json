@@ -6,7 +6,7 @@
     "@biomejs/biome": "^2.5.12"
   },
   "dependencies": {
-    "@buntok/core": "^2.2.0",
+    "@buntok/core": "2.2.1-alpha.0",
     "@buntok/prisma": "^1.0.8",
     "@prisma/adapter-pg": "^7.10.0",
     "cloudinary": "^2.11.0",
