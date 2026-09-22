@@ -5,7 +5,7 @@
     "": {
       "name": "backend",
       "dependencies": {
-        "@buntok/core": "2.2-1-alpha.0",
+        "@buntok/core": "2.2.1-alpha.0",
         "@buntok/prisma": "^1.0.8",
         "@prisma/adapter-pg": "^7.10.0",
         "cloudinary": "^2.11.0",
@@ -13,7 +13,6 @@
       },
       "devDependencies": {
         "@biomejs/biome": "^2.5.12",
-        "@types/bun": "latest",
       },
     },
   },
@@ -38,7 +37,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.5.12", "", { "os": "win32", "cpu": "x64" }, "sha512-B1R/l+CwEpKFSuqiwePzPNRk1EiJN8kc0UhdafNz6MZN9v5OFP9HYP1irptvWzHrwVI4blVNGMbxc5zt70m3IA=="],
 
-    "@buntok/core": ["@buntok/core@2.2.0", "", { "dependencies": { "@asteasolutions/zod-to-openapi": "^8.5.0", "croner": "^10.0.1", "zod": "^4.4.3" }, "peerDependencies": { "@apollo/server": ">=4.0.0", "@opentelemetry/api": ">=1.0.0", "amqplib": "", "bullmq": "", "bun": ">=1.2.0", "graphql": ">=16.0.0", "graphql-yoga": ">=5.0.0", "ioredis": "", "reflect-metadata": ">=0.1.0" }, "optionalPeers": ["@apollo/server", "@opentelemetry/api", "amqplib", "bullmq", "graphql", "graphql-yoga", "ioredis", "reflect-metadata"], "bin": { "buntok": "dist/cli/index.js" } }, "sha512-DlWkUxaNcaaxtjbh9fLZITXXPtzrKZQnNGzLn9L7RHPYhjjUFVAZM4agAyrU39+ve4GlGF5L3zLr7QNq76A9bw=="],
+    "@buntok/core": ["@buntok/core@2.2.1-alpha.0", "", { "dependencies": { "@asteasolutions/zod-to-openapi": "^8.5.0", "croner": "^10.0.1", "zod": "^4.4.3" }, "peerDependencies": { "@apollo/server": ">=4.0.0", "@opentelemetry/api": ">=1.0.0", "amqplib": "", "bullmq": "", "bun": ">=1.2.0", "graphql": ">=16.0.0", "graphql-yoga": ">=5.0.0", "ioredis": "", "reflect-metadata": ">=0.1.0" }, "optionalPeers": ["@apollo/server", "@opentelemetry/api", "amqplib", "bullmq", "graphql", "graphql-yoga", "ioredis", "reflect-metadata"], "bin": { "buntok": "dist/cli/index.js" } }, "sha512-4PCRt8aJ10BcKWtqO3SXJc1rYW9/SoGT++yg1q4WzQdZjQH0KvZGaaQYpk8w1TOEnKhruSgk5ZLX8pcEXQwxWA=="],
 
     "@buntok/prisma": ["@buntok/prisma@1.0.8", "", { "peerDependencies": { "@prisma/client": ">=6.0.0" } }, "sha512-AB1VlxPtyTtDW0aGgZGCVtnfXvYz3u2rWypH169peUqgd9Ax2fDZfCPmcxePO6Dy5pSf4fatRPhjHXFs/z5NnA=="],
 
@@ -118,8 +117,6 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@types/bun": ["@types/bun@1.4.1", "", { "dependencies": { "bun-types": "1.4.1" } }, "sha512-0AVGiTXGajf1rgKom3N+c5L7CBxuoyyv1i44M0nX4UDK0G/fnRAMiri93nHuVPIb429KKtAgj7HatVmmOjeQLA=="],
-
     "@types/d3-array": ["@types/d3-array@3.0.3", "", {}, "sha512-Reoy+pKnvsksN0lQUlcH6dOGjRZ/3WRwXR//m+/8lt1BXeI4xyaUZoqULNjyXXRuh0Mj4LNpkCvhUpQlY3X5xQ=="],
 
     "@types/d3-color": ["@types/d3-color@3.1.0", "", {}, "sha512-HKuicPHJuvPgCD+np6Se9MQvS6OCbJmOjGvylzMJRlDwUXjKTTXs6Pwgk79O09Vj/ho3u1ofXnhFOaEWWPrlwA=="],
@@ -177,8 +174,6 @@
     "better-result": ["better-result@2.10.0", "", {}, "sha512-oQhh0y1qo2/ZKdAAEvHZAqKKiHOFU5k/bW96fE2ScgQOVkJRiHwB+nOS1SgFsYqRlxMDWvefXi9Q3px7QvgNDw=="],
 
     "bun": ["bun@1.4.2", "", { "optionalDependencies": { "@oven/bun-darwin-aarch64": "1.4.2", "@oven/bun-darwin-x64": "1.4.2", "@oven/bun-freebsd-aarch64": "1.4.2", "@oven/bun-freebsd-x64": "1.4.2", "@oven/bun-linux-aarch64": "1.4.2", "@oven/bun-linux-aarch64-android": "1.4.2", "@oven/bun-linux-aarch64-musl": "1.4.2", "@oven/bun-linux-x64": "1.4.2", "@oven/bun-linux-x64-android": "1.4.2", "@oven/bun-linux-x64-musl": "1.4.2", "@oven/bun-windows-aarch64": "1.4.2", "@oven/bun-windows-x64": "1.4.2" }, "os": [ "!aix", "!sunos", "!openbsd", ], "cpu": [ "x64", "arm64", ], "bin": { "bun": "bin/bun.exe", "bunx": "bin/bunx.exe" } }, "sha512-TrSXo6HJfIEaczpb3kjX82I2pL47vK1QUNmHRCUdz9IzaOwa9lzOXSWwu2l18YHE3sNfGRapVLd4nNm+22vVVA=="],
-
-    "bun-types": ["bun-types@1.4.1", "", { "dependencies": { "@types/node": "*" } }, "sha512-loKuVrAFZKfEv+JvWkHRS9GW5IqLuLRjVXN9p+vZvBN86O5hf/pBZQ5hSoyipsrMmWObZBDvWnlmKvjKTM0PdA=="],
 
     "c12": ["c12@3.3.4", "", { "dependencies": { "chokidar": "^5.0.0", "confbox": "^0.2.4", "defu": "^6.1.6", "dotenv": "^17.3.1", "exsolve": "^1.0.8", "giget": "^3.2.0", "jiti": "^2.6.1", "ohash": "^2.0.11", "pathe": "^2.0.3", "perfect-debounce": "^2.1.0", "pkg-types": "^2.3.0", "rc9": "^3.0.1" }, "peerDependencies": { "magicast": "*" }, "optionalPeers": ["magicast"] }, "sha512-cM0ApFQSBXuourJejzwv/AuPRvAxordTyParRVcHjjtXirtkzM0uK2L9TTn9s0cXZbG7E55jCivRQzoxYmRAlA=="],
 
