@@ -1,10 +1,9 @@
 {
   "name": "backend",
-  "private": true,
   "type": "module",
+  "main": "server.ts",
   "devDependencies": {
-    "@biomejs/biome": "^2.5.12",
-    "@types/bun": "latest"
+    "@biomejs/biome": "^2.5.12"
   },
   "dependencies": {
     "@buntok/core": "2.2-1-alpha.0",
