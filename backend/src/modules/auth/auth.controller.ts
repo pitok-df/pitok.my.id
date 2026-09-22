@@ -5,15 +5,14 @@ import { zValidator } from "@buntok/core/middlewares/validator";
 import {
   Context,
   Controller,
-  deleteCookie,
   Dependencies,
   Get,
   Post,
-  requireAuth,
-  setCookie,
   Use,
   type ZodCtx,
 } from "@buntok/core";
+import { deleteCookie, setCookie } from "@buntok/core/helpers";
+import { requireAuth } from "@buntok/core/auth";
 
 @Dependencies(AuthService)
 @Controller("/auth")

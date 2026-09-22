@@ -5,7 +5,7 @@ import type {
   DeleteGalleryImageManyInput,
 } from "./galery-image.schema";
 import { env } from "@/env";
-import { uuid } from "@buntok/core";
+import { uuid } from "@buntok/core/middlewares";
 import { storeStorage } from "@/libs/storage";
 
 @Dependencies(GaleryImageRepository)

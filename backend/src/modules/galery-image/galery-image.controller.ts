@@ -20,7 +20,7 @@ import {
 } from "./galery-image.schema";
 import { zValidator } from "@buntok/core/middlewares/validator";
 import { env } from "@/env";
-import { requireAuth } from "@buntok/core";
+import { requireAuth } from "@buntok/core/auth";
 
 @Dependencies(GaleryImageService)
 @Controller("/galery-images")

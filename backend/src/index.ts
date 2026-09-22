@@ -3,7 +3,7 @@ import { AuthController } from "@/modules/auth";
 import { SkillController } from "@/modules/skill";
 import { GaleryImageController } from "@/modules/galery-image";
 import { ProjectController } from "@/modules/project";
-import { compress } from "@buntok/core";
+import { compress } from "@buntok/core/middlewares";
 
 export const app = new App();
 app.disable("x-powered-by");

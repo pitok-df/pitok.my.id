@@ -18,7 +18,7 @@ import {
   type UpdateSkillInput,
 } from "./skill.schema";
 import { z, zValidator } from "@buntok/core/middlewares/validator";
-import { requireAuth } from "@buntok/core";
+import { requireAuth } from "@buntok/core/auth";
 
 @Dependencies(SkillService)
 @Controller("/skills")

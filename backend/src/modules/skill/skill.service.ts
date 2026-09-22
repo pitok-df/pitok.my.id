@@ -1,8 +1,8 @@
 import { Dependencies } from "@buntok/core";
 import { SkillRepository } from "./skill.repository";
 import type { CreateSkillInput, UpdateSkillInput } from "./skill.schema";
-import { Cache } from "@buntok/core";
-import { ConflictError } from "@buntok/core";
+import { Cache } from "@buntok/core/cache";
+import { ConflictError } from "@buntok/core/helpers";
 
 @Dependencies(SkillRepository)
 export class SkillService {
