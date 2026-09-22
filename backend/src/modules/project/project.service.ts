@@ -2,7 +2,7 @@ import { Dependencies, NotFoundError } from "@buntok/core";
 import { ProjectRepository } from "./project.repository";
 import type { CreateProjectInput, UpdateProjectInput } from "./project.schema";
 import { SkillRepository } from "../skill";
-import { uuid } from "@buntok/core/middlewares";
+import { uuid } from "@buntok/core";
 import { storeStorage } from "@/libs/storage";
 import { env } from "@/env";
 

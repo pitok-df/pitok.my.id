@@ -17,7 +17,7 @@ import {
   type CreateProjectInput,
   type UpdateProjectInput,
 } from "./project.schema";
-import { requireAuth } from "@buntok/core/auth";
+import { requireAuth } from "@buntok/core";
 import { env } from "@/env";
 
 @Dependencies(ProjectService)

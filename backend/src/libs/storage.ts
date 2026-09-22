@@ -3,7 +3,7 @@ import {
   LocalDiskStorage,
   type StorageDriver,
   type UploadedFile,
-} from "@buntok/core/upload";
+} from "@buntok/core";
 import { env } from "@/env";
 
 export interface CloudinaryStorageOptions {
