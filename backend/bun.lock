@@ -5,7 +5,7 @@
     "": {
       "name": "backend",
       "dependencies": {
-        "@buntok/core": "2.2.1-alpha.0",
+        "@buntok/core": "2.2-1-alpha.1",
         "@buntok/prisma": "^1.0.8",
         "@prisma/adapter-pg": "^7.10.0",
         "cloudinary": "^2.11.0",
@@ -37,7 +37,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.5.12", "", { "os": "win32", "cpu": "x64" }, "sha512-B1R/l+CwEpKFSuqiwePzPNRk1EiJN8kc0UhdafNz6MZN9v5OFP9HYP1irptvWzHrwVI4blVNGMbxc5zt70m3IA=="],
 
-    "@buntok/core": ["@buntok/core@2.2.1-alpha.0", "", { "dependencies": { "@asteasolutions/zod-to-openapi": "^8.5.0", "croner": "^10.0.1", "zod": "^4.4.3" }, "peerDependencies": { "@apollo/server": ">=4.0.0", "@opentelemetry/api": ">=1.0.0", "amqplib": "", "bullmq": "", "bun": ">=1.2.0", "graphql": ">=16.0.0", "graphql-yoga": ">=5.0.0", "ioredis": "", "reflect-metadata": ">=0.1.0" }, "optionalPeers": ["@apollo/server", "@opentelemetry/api", "amqplib", "bullmq", "graphql", "graphql-yoga", "ioredis", "reflect-metadata"], "bin": { "buntok": "dist/cli/index.js" } }, "sha512-4PCRt8aJ10BcKWtqO3SXJc1rYW9/SoGT++yg1q4WzQdZjQH0KvZGaaQYpk8w1TOEnKhruSgk5ZLX8pcEXQwxWA=="],
+    "@buntok/core": ["@buntok/core@2.2.0", "", { "dependencies": { "@asteasolutions/zod-to-openapi": "^8.5.0", "croner": "^10.0.1", "zod": "^4.4.3" }, "peerDependencies": { "@apollo/server": ">=4.0.0", "@opentelemetry/api": ">=1.0.0", "amqplib": "", "bullmq": "", "bun": ">=1.2.0", "graphql": ">=16.0.0", "graphql-yoga": ">=5.0.0", "ioredis": "", "reflect-metadata": ">=0.1.0" }, "optionalPeers": ["@apollo/server", "@opentelemetry/api", "amqplib", "bullmq", "graphql", "graphql-yoga", "ioredis", "reflect-metadata"], "bin": { "buntok": "dist/cli/index.js" } }, "sha512-DlWkUxaNcaaxtjbh9fLZITXXPtzrKZQnNGzLn9L7RHPYhjjUFVAZM4agAyrU39+ve4GlGF5L3zLr7QNq76A9bw=="],
 
     "@buntok/prisma": ["@buntok/prisma@1.0.8", "", { "peerDependencies": { "@prisma/client": ">=6.0.0" } }, "sha512-AB1VlxPtyTtDW0aGgZGCVtnfXvYz3u2rWypH169peUqgd9Ax2fDZfCPmcxePO6Dy5pSf4fatRPhjHXFs/z5NnA=="],
 
