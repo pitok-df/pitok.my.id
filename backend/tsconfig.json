@@ -9,7 +9,8 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "types": [
-      "bun"
+      "bun",
+      "node"
     ],
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -28,5 +29,12 @@
         "./src/*"
       ]
     }
-  }
+  },
+   "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".buntok"
+  ]
 }
