@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "bun --watch server.ts",
-    "build": "bunx buntok build",
+    "build": "bunx prisma generate && bunx buntok build",
     "start": "bun .buntok/server.js",
     "check": "bunx @biomejs/biome check --write .",
     "format": "bunx @biomejs/biome format --write .",
