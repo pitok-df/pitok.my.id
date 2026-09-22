@@ -1,11 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "bun",
-  "bunVersion": "1.4.x",
-  "builds": [
-    {
-      "src": "server.ts",
-      "use": "@vercel/runtime-bun"
-    }
-  ]
+  "bunVersion": "1.4.x"
 }
